@@ -1,4 +1,4 @@
-# Pall Mall — clinic operations platform
+# Clinic Manager — clinic operations platform
 
 Staff web portal, NestJS microservices, and a patient mobile app for clinic / surgical operations: procedure-phase tasks, dual approvals, messaging, CMS content, and notification rules.
 
@@ -8,16 +8,16 @@ This snapshot is **source only**. Environment files with credentials are not inc
 
 | Folder | Stack | Default URL / ports |
 | --- | --- | --- |
-| `pall-mall-web-portal` | Vite, React 19, MUI 7, Redux | http://localhost:3000 |
-| `pall-mall-core-services` | NestJS 10, Turborepo, Postgres, Kafka | 3001–3005 |
-| `pall-mall-mobile-app` | React Native 0.78 | device / emulator |
+| `clinic-manager-web-portal` | Vite, React 19, MUI 7, Redux | http://localhost:3000 |
+| `clinic-manager-core-services` | NestJS 10, Turborepo, Postgres, Kafka | 3001–3005 |
+| `clinic-manager-mobile-app` | React Native 0.78 | device / emulator |
 
 ## Quick start (web + APIs)
 
-**Backend** (needs Node 18+, pnpm, Postgres, Kafka — Docker Compose is in `pall-mall-core-services`):
+**Backend** (needs Node 18+, pnpm, Postgres, Kafka — Docker Compose is in `clinic-manager-core-services`):
 
 ```bash
-cd pall-mall-core-services
+cd clinic-manager-core-services
 cp .env.example .env
 pnpm install
 pnpm dev
@@ -26,7 +26,7 @@ pnpm dev
 **Staff portal:**
 
 ```bash
-cd pall-mall-web-portal
+cd clinic-manager-web-portal
 cp .env.example .env.stage
 npm install
 npm run dev
