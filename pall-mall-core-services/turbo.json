@@ -1,0 +1,204 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "tsconfig.json",
+    ".eslintrc.js",
+    "turbo.json"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "build/**", ".next/**", "!.next/cache/**"],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.js",
+        "src/**/*.jsx",
+        "package.json",
+        "tsconfig.json",
+        "tsconfig.build.json"
+      ],
+      "env": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "JWT_SECRET"]
+    },
+    "lint": {
+      "dependsOn": [],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.js",
+        "src/**/*.jsx",
+        "package.json",
+        ".eslintrc.js",
+        "tsconfig.json"
+      ],
+      "outputs": []
+    },
+    "format": {
+      "dependsOn": [],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.js",
+        "src/**/*.jsx",
+        "package.json",
+        ".prettierrc",
+        ".prettierignore"
+      ],
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "tsconfig.json",
+        "tsconfig.build.json"
+      ],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "test/**/*.ts",
+        "test/**/*.tsx",
+        "test/**/*.spec.ts",
+        "test/**/*.test.ts",
+        "jest.config.json",
+        "jest.config.js"
+      ],
+      "outputs": ["coverage/**"],
+      "env": [
+        "NODE_ENV",
+        "DATABASE_URL",
+        "REDIS_URL",
+        "JWT_SECRET",
+        "TEST_DATABASE_URL"
+      ]
+    },
+    "test:unit": {
+      "dependsOn": ["build"],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "test/**/*.spec.ts",
+        "test/**/*.test.ts",
+        "jest.config.json"
+      ],
+      "outputs": ["coverage/**"]
+    },
+    "test:integration": {
+      "dependsOn": ["build"],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "test/**/*.integration.ts",
+        "jest.config.json"
+      ],
+      "outputs": ["coverage/**"],
+      "env": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "JWT_SECRET"]
+    },
+    "test:e2e": {
+      "dependsOn": ["build", "test:integration"],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "test/**/*.e2e-spec.ts",
+        "test/jest-e2e.json"
+      ],
+      "outputs": ["test-results/**", "coverage/**"],
+      "env": [
+        "NODE_ENV",
+        "DATABASE_URL",
+        "REDIS_URL",
+        "JWT_SECRET",
+        "E2E_DATABASE_URL"
+      ]
+    },
+    "test:security": {
+      "dependsOn": [],
+      "inputs": [
+        "package.json",
+        "pnpm-lock.yaml",
+        "audit-ci.json",
+        "yarn.lock",
+        "package-lock.json"
+      ],
+      "outputs": ["security-audit-report.json"]
+    },
+    "start:dev": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true,
+      "env": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "JWT_SECRET", "PORT"]
+    },
+    "start:prod": {
+      "dependsOn": ["build"],
+      "cache": false,
+      "env": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "JWT_SECRET", "PORT"]
+    },
+    "migration:generate": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.entity.ts", "src/database/data-source.ts"],
+      "outputs": ["src/database/migrations/**"],
+      "env": ["DATABASE_URL"]
+    },
+    "migration:run": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/database/migrations/**"],
+      "env": ["DATABASE_URL"]
+    },
+    "migration:revert": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/database/migrations/**"],
+      "env": ["DATABASE_URL"]
+    },
+    "seed": {
+      "dependsOn": ["migration:run"],
+      "inputs": ["src/database/seeders/**"],
+      "env": ["DATABASE_URL"]
+    },
+    "db:setup": {
+      "dependsOn": ["migration:run", "seed"],
+      "env": ["DATABASE_URL"]
+    },
+    "db:reset": {
+      "dependsOn": ["migration:revert", "migration:run", "seed"],
+      "env": ["DATABASE_URL"]
+    },
+    "clean": {
+      "dependsOn": [],
+      "cache": false,
+      "inputs": [],
+      "outputs": []
+    },
+    "docker:build": {
+      "dependsOn": ["build"],
+      "inputs": ["Dockerfile", "docker/**", ".dockerignore"],
+      "env": ["DOCKER_BUILDKIT"]
+    },
+    "deploy:staging": {
+      "dependsOn": ["build", "test", "test:e2e", "test:security"],
+      "env": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "JWT_SECRET"]
+    },
+    "deploy:production": {
+      "dependsOn": [
+        "build",
+        "test",
+        "test:e2e",
+        "test:security",
+        "deploy:staging"
+      ],
+      "env": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "JWT_SECRET"]
+    }
+  },
+  "globalEnv": [
+    "CI",
+    "TURBO_FORCE",
+    "TURBO_REMOTE_CACHE_DISABLED",
+    "TURBO_REMOTE_CACHE_READ_ONLY"
+  ]
+}

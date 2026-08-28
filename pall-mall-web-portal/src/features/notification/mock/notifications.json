@@ -1,0 +1,42 @@
+[
+  {
+    "id": "n1",
+    "title": "New Message Received",
+    "trigger": "Message received",
+    "channels": ["In-App", "Email"],
+    "assigned": ["Assigned staff"],
+    "status": true
+  },
+  {
+    "id": "n2",
+    "title": "Form Awaiting Approval",
+    "trigger": "Form submitted",
+    "channels": ["In-App", "Email"],
+    "assigned": ["Managers", "Admins"],
+    "status": false
+  },
+  {
+    "id": "n3",
+    "title": "Overdue Task Alert",
+    "trigger": "Task overdue by 24h",
+    "channels": ["In-App", "Email", "Daily Digest"],
+    "assigned": ["Task assignee", "Manager"],
+    "status": true
+  },
+  {
+    "id": "n4",
+    "title": "Daily Task Summary",
+    "trigger": "Daily at 8:00 AM",
+    "channels": ["Email"],
+    "assigned": ["All coordinators"],
+    "status": false
+  },
+   {
+    "id": "n5",
+    "title": "Content Published",
+    "trigger": "New content published",
+    "channels": ["In-App"],
+    "assigned": ["All coordinators"],
+    "status": true
+  }
+]

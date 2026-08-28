@@ -1,0 +1,40 @@
+FROM node:20.10.0-alpine AS builder
+
+WORKDIR /usr/src/app
+
+RUN npm install -g pnpm@9.0.0
+
+# Copy only the integration-service environment file
+COPY .env .env
+
+# Copy the whole monorepo
+COPY . .
+
+# Install dependencies
+RUN pnpm install --no-frozen-lockfile
+
+# Build the integration service
+RUN pnpm build
+
+# Deploy ONLY integration-service output
+RUN pnpm deploy --filter integration-service --prod /usr/src/app/deploy
+
+
+# ----------- RUNTIME IMAGE -----------
+FROM node:20.10.0-alpine
+
+WORKDIR /usr/src/app
+
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+COPY --from=builder --chown=appuser:appgroup /usr/src/app/deploy .
+
+COPY --chown=appuser:appgroup .env .env
+
+USER appuser
+
+ENV NODE_ENV=production
+
+EXPOSE 2095
+
+CMD ["node", "dist/main.js"]

@@ -1,0 +1,16 @@
+{
+  "low": true,
+  "moderate": true,
+  "high": true,
+  "critical": true,
+  "allowlist": [
+    "GHSA-776f-qx25-q3cc", // Example: allow specific vulnerability if it's a false positive
+    "GHSA-8x3m-x6g4-7j8r" // Add any known acceptable vulnerabilities
+  ],
+  "path-allowlist": ["/test/**", "/docs/**"],
+  "report": {
+    "type": "full",
+    "path": "./security-audit-report.json"
+  },
+  "output-format": "text"
+}

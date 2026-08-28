@@ -1,0 +1,41 @@
+FROM node:20.10.0-alpine AS builder
+
+WORKDIR /usr/src/app
+
+RUN npm install -g pnpm@9.0.0
+
+
+# Copy monorepo
+COPY . .
+
+# Install all workspace deps
+RUN pnpm install --no-frozen-lockfile
+
+# Build everything
+RUN pnpm build
+
+# Deploy ONLY patient-service build output
+RUN pnpm deploy --filter patient-service --prod /usr/src/app/deploy
+
+
+# ------------------ RUNTIME IMAGE ------------------
+FROM node:20.10.0-alpine
+
+WORKDIR /usr/src/app
+
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Copy deployment folder
+COPY --from=builder --chown=appuser:appgroup /usr/src/app/deploy .
+
+# Copy environment file
+COPY --chown=appuser:appgroup .env .env
+
+USER appuser
+
+ENV NODE_ENV=production
+
+# Patient service port
+EXPOSE 2094
+
+CMD ["node", "dist/main.js"]

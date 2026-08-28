@@ -1,0 +1,1 @@
+export {default as patientReducer} from './slice'

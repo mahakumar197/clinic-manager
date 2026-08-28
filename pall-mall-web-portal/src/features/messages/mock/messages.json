@@ -1,0 +1,413 @@
+[
+  {
+    "id": "m1",
+    "patientName": "Sarah Johnson",
+    "subject": "Post-op swelling concern",
+    "timestamp": "2024-11-20T10:15:00",
+    "senderRole": "patient",
+    "assignedTo": "Nurse",
+    "assignedToName": "Nurse Janet",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "Sarah Johnson",
+        "role": "patient",
+        "content": "There is swelling around the incision. Is this normal?",
+        "timestamp": "2024-11-20T10:15:00",
+        "isInternal": false
+      }
+    ]
+  },
+  {
+    "id": "m2",
+    "patientName": "Daniel Scott",
+    "subject": "Recovery progress updates",
+    "timestamp": "2024-11-20T09:00:00",
+    "senderRole": "patient",
+    "assignedTo": "Doctor",
+    "assignedToName": "Dr. Vicky",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "Daniel Scott",
+        "role": "patient",
+        "content": "I'm still feeling pain when I walk. Is this normal?",
+        "timestamp": "2024-11-20T09:00:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Admin",
+        "role": "admin",
+        "content": "@Dr. Vicky - Patient reporting pain during walking. Please review.",
+        "timestamp": "2024-11-20T09:05:00",
+        "isInternal": true
+      },
+      {
+        "sender": "Dr. Vicky",
+        "role": "doctor",
+        "content": "Some pain is expected. Try short walks only.",
+        "timestamp": "2024-11-20T09:20:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Daniel Scott",
+        "role": "patient",
+        "content": "Can I take an extra painkiller if needed?",
+        "timestamp": "2024-11-20T10:00:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Dr. Vicky",
+        "role": "doctor",
+        "content": "No extra dose. Instead, try ice pack for 10 mins.",
+        "timestamp": "2024-11-20T10:15:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Daniel Scott",
+        "role": "patient",
+        "content": "Should I use an ankle support while walking?",
+        "timestamp": "2024-11-20T10:45:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Admin",
+        "role": "admin",
+        "content": "@Dr. Vicky - Patient asking about ankle support.",
+        "timestamp": "2024-11-20T11:00:00",
+        "isInternal": true
+      },
+      {
+        "sender": "Dr. Vicky",
+        "role": "doctor",
+        "content": "Yes, use it for 1 week. It will reduce pressure on the joint.",
+        "timestamp": "2024-11-20T11:20:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Daniel Scott",
+        "role": "patient",
+        "content": "Thanks. Also, is light exercise okay?",
+        "timestamp": "2024-11-20T11:45:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Dr. Vicky",
+        "role": "doctor",
+        "content": "Light stretching is fine. Avoid weights or squats.",
+        "timestamp": "2024-11-20T12:10:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m3",
+    "patientName": "Emma Johnson",
+    "subject": "Dressing is coming off",
+    "timestamp": "2024-11-19T12:00:00",
+    "senderRole": "patient",
+    "assignedTo": "Nurse",
+    "assignedToName": "Nurse Amy",
+    "isRead": false,
+    "flagged": false,
+    "messages": [
+      {
+        "sender": "Emma Johnson",
+        "role": "patient",
+        "content": "My wound dressing is peeling off. Should I come in?",
+        "timestamp": "2024-11-19T12:00:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Admin",
+        "role": "admin",
+        "content": "@Nurse Amy - Please check if the patient needs an appointment.",
+        "timestamp": "2024-11-19T12:20:00",
+        "isInternal": true
+      }
+    ]
+  },
+
+  {
+    "id": "m4",
+    "patientName": "Michael Lee",
+    "subject": "Fever after medication",
+    "timestamp": "2024-11-18T09:30:00",
+    "senderRole": "patient",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "Michael Lee",
+        "role": "patient",
+        "content": "I have mild fever after taking the new medicine.",
+        "timestamp": "2024-11-18T09:30:00",
+        "isInternal": false
+      }
+    ]
+  },
+  {
+    "id": "m5",
+    "patientName": "Lucas Brown",
+    "subject": "Medication making me dizzy",
+    "timestamp": "2024-11-19T15:40:00",
+    "senderRole": "patient",
+    "isRead": false,
+    "flagged": false,
+    "messages": [
+      {
+        "sender": "Lucas Brown",
+        "role": "patient",
+        "content": "Feeling dizzy after taking my medicine.",
+        "timestamp": "2024-11-19T15:40:00",
+        "isInternal": false
+      }
+    ]
+  },
+  {
+    "id": "m6",
+    "patientName": "Olivia Brown",
+    "subject": "Need diet clarification",
+    "timestamp": "2024-11-17T15:10:00",
+    "senderRole": "patient",
+    "isRead": true,
+    "flagged": false,
+    "messages": [
+      {
+        "sender": "Olivia Brown",
+        "role": "patient",
+        "content": "Can I eat spicy food yet?",
+        "timestamp": "2024-11-17T15:10:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m7",
+    "patientName": "Jacob Lee",
+    "subject": "Physiotherapy booking",
+    "timestamp": "2024-11-17T13:25:00",
+    "senderRole": "patient",
+    "assignedTo": "Coordinator",
+    "assignedToName": "Sarah (Coordinator)",
+    "isRead": true,
+    "flagged": false,
+    "messages": [
+      {
+        "sender": "Jacob Lee",
+        "role": "patient",
+        "content": "I need to book physiotherapy next week.",
+        "timestamp": "2024-11-17T13:25:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Admin",
+        "role": "admin",
+        "content": "@Sarah - Please schedule physiotherapy for next week.",
+        "timestamp": "2024-11-17T13:45:00",
+        "isInternal": true
+      }
+    ]
+  },
+
+  {
+    "id": "m8",
+    "patientName": "Ava Turner",
+    "subject": "Antibiotics question",
+    "timestamp": "2024-11-16T18:00:00",
+    "senderRole": "patient",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "Ava Turner",
+        "role": "patient",
+        "content": "Can I reduce antibiotic dosage?",
+        "timestamp": "2024-11-16T18:00:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m9",
+    "patientName": "William Harris",
+    "subject": "Blood pressure high",
+    "timestamp": "2024-11-16T10:20:00",
+    "senderRole": "patient",
+    "assignedTo": "Doctor",
+    "assignedToName": "Dr. Vicky",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "William Harris",
+        "role": "patient",
+        "content": "BP is 150/95 today. Should I worry?",
+        "timestamp": "2024-11-16T10:20:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m10",
+    "patientName": "Sophia Miller",
+    "subject": "Insurance document issue",
+    "timestamp": "2024-11-15T16:45:00",
+    "senderRole": "patient",
+    "assignedTo": "Coordinator",
+    "assignedToName": "Ryan (Coordinator)",
+    "isRead": true,
+    "flagged": false,
+    "messages": [
+      {
+        "sender": "Sophia Miller",
+        "role": "patient",
+        "content": "I uploaded insurance but system says missing.",
+        "timestamp": "2024-11-15T16:45:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m11",
+    "patientName": "James Anderson",
+    "subject": "Pain during walking",
+    "timestamp": "2024-11-15T14:35:00",
+    "senderRole": "patient",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "James Anderson",
+        "role": "patient",
+        "content": "Pain when I walk long distances.",
+        "timestamp": "2024-11-15T14:35:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m12",
+    "patientName": "Mason Taylor",
+    "subject": "Post-surgery check-up",
+    "timestamp": "2024-11-14T11:20:00",
+    "senderRole": "patient",
+    "assignedTo": "Doctor",
+    "assignedToName": "Dr. Sam",
+    "isRead": true,
+    "flagged": false,
+    "messages": [
+      {
+        "sender": "Mason Taylor",
+        "role": "patient",
+        "content": "Do I need a follow-up scan?",
+        "timestamp": "2024-11-14T11:20:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Admin",
+        "role": "admin",
+        "content": "@Dr. Sam - Please advise on follow-up scan.",
+        "timestamp": "2024-11-14T11:40:00",
+        "isInternal": true
+      },
+      {
+        "sender": "Dr. Sam",
+        "role": "doctor",
+        "content": "Yes, book MRI next week.",
+        "timestamp": "2024-11-14T12:10:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m13",
+    "patientName": "Aiden Parker",
+    "subject": "Sleep issues",
+    "timestamp": "2024-11-14T09:10:00",
+    "senderRole": "patient",
+    "isRead": true,
+    "flagged": false,
+    "messages": [
+      {
+        "sender": "Aiden Parker",
+        "role": "patient",
+        "content": "Having trouble sleeping since surgery.",
+        "timestamp": "2024-11-14T09:10:00",
+        "isInternal": false
+      }
+    ]
+  },
+
+  {
+    "id": "m14",
+    "patientName": "Jacob Wilson",
+    "subject": "Returning to gym",
+    "timestamp": "2024-11-13T16:00:00",
+    "senderRole": "patient",
+    "assignedTo": "Doctor",
+    "assignedToName": "Dr. Neha",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "Jacob Wilson",
+        "role": "patient",
+        "content": "Can I gym next week?",
+        "timestamp": "2024-11-13T16:00:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Admin",
+        "role": "admin",
+        "content": "@Dr. Neha - Please check physical restrictions.",
+        "timestamp": "2024-11-13T16:20:00",
+        "isInternal": true
+      }
+    ]
+  },
+
+  {
+    "id": "m15",
+    "patientName": "Emily Turner",
+    "subject": "Heavy pain at night",
+    "timestamp": "2024-11-13T14:10:00",
+    "senderRole": "patient",
+    "assignedTo": "Doctor",
+    "assignedToName": "Dr. Stella",
+    "isRead": false,
+    "flagged": true,
+    "messages": [
+      {
+        "sender": "Emily Turner",
+        "role": "patient",
+        "content": "Pain increases at night, what should I do?",
+        "timestamp": "2024-11-13T14:10:00",
+        "isInternal": false
+      },
+      {
+        "sender": "Admin",
+        "role": "admin",
+        "content": "@Dr. Stella - Review her pain medication.",
+        "timestamp": "2024-11-13T14:25:00",
+        "isInternal": true
+      },
+      {
+        "sender": "Dr. Stella",
+        "role": "doctor",
+        "content": "I’ll adjust your dosage. Please monitor pain level.",
+        "timestamp": "2024-11-13T14:50:00",
+        "isInternal": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "id": "m1",
+  "patientName": "Sarah Johnson",
+  "subject": "Post-op follow-up question",
+  "timestamp": "2024-11-20T10:15:00",
+  "senderRole": "patient",
+  "assignedTo": "Nurse",
+  "assignedToName": "Nurse Janet",
+  "isRead": false,
+  "flagged": true,
+  "messages": [
+    {
+      "sender": "Sarah Johnson",
+      "role": "patient",
+      "content": "Hi, I wanted to ask about the swelling I'm experiencing post-surgery...",
+      "timestamp": "2024-11-20T10:15:00",
+      "isInternal": false
+    },
+    {
+      "sender": "Dr. Smith",
+      "role": "admin",
+      "content": "@JaneWilliams - Can you please follow up with Sarah? This is normal swelling...",
+      "timestamp": "2024-11-20T11:00:00",
+      "isInternal": true
+    }
+  ]
+}

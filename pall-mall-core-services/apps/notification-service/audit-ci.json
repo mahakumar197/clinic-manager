@@ -1,0 +1,13 @@
+{
+  "low": true,
+  "moderate": true,
+  "high": true,
+  "critical": true,
+  "allowlist": ["GHSA-776f-qx25-q3cc", "GHSA-8x3m-x6g4-7j8r"],
+  "path-allowlist": ["/test/**", "/docs/**"],
+  "report": {
+    "type": "full",
+    "path": "./security-audit-report.json"
+  },
+  "output-format": "text"
+}

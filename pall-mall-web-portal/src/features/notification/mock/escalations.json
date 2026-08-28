@@ -1,0 +1,48 @@
+[
+  {
+    "id": "e1",
+    "title": "Urgent Form Escalation",
+    "condition": "High priority form not approved within 4 hours",
+    "action": ["Alert Coordinator", "Alert Manager"],
+    "channels": ["In-App", "Email"],
+    "assigned": ["Manager"],
+    "status": true
+  },
+  {
+    "id": "e2",
+    "title": "Message Response Escalation",
+    "condition": "No response to patient message within 48 hours",
+    "action": ["Alert Coordinator & Manager"],
+    "channels": ["Email"],
+    "assigned": ["Senior Nurse"],
+    "status": false
+  },
+  {
+    "id": "e3",
+    "title": "Task Completion Escalation",
+    "condition": "Task overdue by 72 hours",
+    "action": ["Alert Manager"],
+    "channels": ["In-App", "Daily Digest"],
+    "assigned": ["Task Assignee", "Manager"],
+    "status": true
+  },
+  {
+    "id": "e4",
+    "title": "Message Follow-up Escalation",
+    "condition": "Message unread for 4 hours",
+    "action": ["Alert Coordinator"],
+    "channels": ["In-App"],
+    "assigned": ["Coordinator"],
+    "status": true
+  },
+  {
+    "id": "e5",
+    "title": "Critical Case Escalation",
+    "condition": "No follow-up on critical patient case within 24 hours",
+    "action": ["Alert Manager", "Alert Senior Nurse"],
+    "channels": ["In-App", "Email", "Daily Digest"],
+    "assigned": ["Manager", "Senior Nurse"],
+    "status": false
+  }
+]
+

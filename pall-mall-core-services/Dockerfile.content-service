@@ -1,0 +1,18 @@
+FROM node:20.10.0-alpine AS builder
+WORKDIR /usr/src/app
+RUN npm install -g pnpm@9.0.0
+COPY ../../.env .env
+COPY . .
+RUN pnpm install --no-frozen-lockfile
+RUN pnpm build 
+RUN pnpm deploy --filter content-service --prod /usr/src/app/deploy
+
+FROM node:20.10.0-alpine
+WORKDIR /usr/src/app
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+COPY --from=builder --chown=appuser:appgroup /usr/src/app/deploy .
+COPY --chown=appuser:appgroup .env .env
+USER appuser
+ENV NODE_ENV=production
+EXPOSE 2092
+CMD ["node", "dist/main.js"]
